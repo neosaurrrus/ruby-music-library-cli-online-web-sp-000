@@ -1,6 +1,7 @@
 class Song
   attr_accessor :name
   attr_reader :artist, :genre
+  extend Concerns::Findable
 
   @@all = []
 
@@ -44,6 +45,17 @@ class Song
   def genre=(genre)
       @genre = genre
       genre.add_song(self)
+  end
+
+  def self.find_by_name(name)
+      @@all.find{|a| a.name == name}
+  end
+  def self.find_or_create_by_name(name)
+      if !self.find_by_name(name)
+        Song.create(name)
+      else
+      self.find_by_name(name)
+    end
   end
 
 end

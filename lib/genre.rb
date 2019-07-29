@@ -1,5 +1,5 @@
 class Genre
-
+  extend Concerns::Findable
   attr_accessor :name
   attr_reader :songs
 
@@ -37,5 +37,12 @@ class Genre
     end
   end
 
+  def artists # Returns an Artist's genres
+    @genre_artists = []
+    @songs.each do |song|
+      @genre_artists << song.artist
+    end
+   @genre_artists.uniq
+  end
 
 end
