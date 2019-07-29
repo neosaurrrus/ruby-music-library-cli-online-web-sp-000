@@ -58,4 +58,11 @@ class Song
     end
   end
 
-end
+  def self.new_from_filename(filename)
+    Song.new(filename)
+  end
+
+
+
+
+end #of class
