@@ -39,6 +39,7 @@ class Song
 
   def artist=(artist)
       @artist = artist
+      Artist.find_or_create_by_name(@artist)
       artist.add_song(self)
   end
 
@@ -59,7 +60,9 @@ class Song
   end
 
   def self.new_from_filename(filename)
-    Song.new(filename)
+    split_filename= filename.split(" - ")
+    puts split_filename
+    Song.new(split_filename[1], split_filename[0], split_filename[2])
   end
 
 
