@@ -31,7 +31,7 @@ class MusicLibraryController
       elsif input == "list genre"
         self.list_songs_by_genre
       elsif input == "play song"
-        self.play song
+        self.play_song
       end
     end
 
@@ -113,7 +113,7 @@ class MusicLibraryController
       a.name <=> b.name
     end
 
-    if sorted_songs[song_selection] != nil
+    if sorted_songs[song_selection] != nil && song_selection <= sorted_songs.length+1 && song_selection >= 0
     selected_song = sorted_songs[song_selection].name
     selected_artist = sorted_songs[song_selection].artist.name
       puts "Playing #{selected_song} by #{selected_artist}"
