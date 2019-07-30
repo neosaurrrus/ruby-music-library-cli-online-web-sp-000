@@ -1,12 +1,17 @@
 class MusicLibraryController
 
+<<<<<<< HEAD
   def initialize(path = "./db/mp3s")
+=======
+  def initialize(path = "./db/mp3s/")
+>>>>>>> c45fcefc5343b643d3679de164d51d109b963442
     @path = path
     new_import = MusicImporter.new(@path)
     new_import.import
   end
 
   def call
+<<<<<<< HEAD
     puts "Welcome to your music library!"
     puts "To list all of your songs, enter 'list songs'."
     puts "To list all of the artists in your library, enter 'list artists'."
@@ -16,10 +21,15 @@ class MusicLibraryController
     puts "To play a song, enter 'play song'."
     puts "To quit, type 'exit'."
     puts "What would you like to do?"
+=======
+    puts "Welcome"
+    puts "Please input"
+>>>>>>> c45fcefc5343b643d3679de164d51d109b963442
     exit = false
     while exit == false do
     input = gets.chomp
     input == "exit" ? exit = true : exit = false
+<<<<<<< HEAD
       if input == "list songs"
         self.list_songs
       elsif input == "list artists"
@@ -117,6 +127,8 @@ class MusicLibraryController
     selected_song = sorted_songs[song_selection].name
     selected_artist = sorted_songs[song_selection].artist.name
       puts "Playing #{selected_song} by #{selected_artist}"
+=======
+>>>>>>> c45fcefc5343b643d3679de164d51d109b963442
     end
 
   end
