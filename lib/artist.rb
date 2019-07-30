@@ -32,7 +32,7 @@ class Artist
   end
 
   def add_song(song)
-      if song.artist != nil && self.songs.find {|artists_song|artists_song == song } == nil
+      if song.artist != nil && self.songs.find {|artists_song| artists_song.name == song.name } == nil
         self.songs << song
       end
       if song.artist == nil || song.artist != self

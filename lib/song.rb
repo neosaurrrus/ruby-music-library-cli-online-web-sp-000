@@ -38,11 +38,14 @@ class Song
   end
 
   def artist=(artist)
-
       @artist = artist
-
-
       @artist.add_song(self)
+      if Artist.find_by_name(artist) == nil
+        new_artist = Artist.new(artist)
+      else
+        @artist.add_song(self)
+      end
+
   end
 
   def genre=(genre)
@@ -52,14 +55,15 @@ class Song
 
   def self.new_from_filename(filename)
     split_filename= filename.split(" - ")
-    puts split_filename
     new_artist = Artist.find_or_create_by_name(split_filename[0])
-    new_genre = Genre.find_or_create_by_name(split_filename[2])
+    new_genre = Genre.find_or_create_by_name(split_filename[2].split(".")[0])
     Song.new(split_filename[1], new_artist, new_genre)
-
   end
 
-
-
+  def self.create_from_filename(filename)
+    new_song = Song.new_from_filename(filename)
+    new_song.save
+    new_song
+  end
 
 end #of class
