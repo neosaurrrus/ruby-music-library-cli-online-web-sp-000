@@ -37,7 +37,6 @@ class Artist
       end
       if song.artist == nil || song.artist != self
         song.artist = self
-
       end
   end
 
