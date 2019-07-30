@@ -112,8 +112,8 @@ class MusicLibraryController
     sorted_songs = Song.all.sort do |a,b|
       a.name <=> b.name
     end
-
-    if sorted_songs[song_selection] != nil
+    picked_song = sorted_songs[song_selection]
+    if sorted_songs[song_selection] != nil && song
     selected_song = sorted_songs[song_selection].name
     selected_artist = sorted_songs[song_selection].artist.name
       puts "Playing #{selected_song} by #{selected_artist}"
