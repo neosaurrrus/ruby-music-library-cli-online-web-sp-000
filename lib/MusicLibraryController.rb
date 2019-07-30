@@ -113,7 +113,7 @@ class MusicLibraryController
       a.name <=> b.name
     end
 
-    if sorted_songs[song_selection] != nil && song_selection <= sorted_songs.length
+    if sorted_songs[song_selection] != nil && song_selection <= sorted_songs.length+1
     selected_song = sorted_songs[song_selection].name
     selected_artist = sorted_songs[song_selection].artist.name
       puts "Playing #{selected_song} by #{selected_artist}"
