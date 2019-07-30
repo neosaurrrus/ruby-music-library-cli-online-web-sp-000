@@ -39,7 +39,8 @@ class Song
 
   def artist=(artist)
       @artist = artist
-      Artist.find_or_create_by_name(@artist)
+      Artist.find_or_create_by_name(artist)
+      binding.pry
       artist.add_song(self)
   end
 
@@ -63,6 +64,7 @@ class Song
     split_filename= filename.split(" - ")
     puts split_filename
     Song.new(split_filename[1], split_filename[0], split_filename[2])
+
   end
 
 
