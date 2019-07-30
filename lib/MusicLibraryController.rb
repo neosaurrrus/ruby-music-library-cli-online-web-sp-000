@@ -108,11 +108,11 @@ class MusicLibraryController
   def play_song
     puts "Which song number would you like to play?"
     song_selection = gets.chomp.to_i - 1
-    
+
     sorted_songs = Song.all.sort do |a,b|
       a.name <=> b.name
     end
-  
+
     if sorted_songs[song_selection] != nil && song_selection <= sorted_songs.length
     selected_song = sorted_songs[song_selection].name
     selected_artist = sorted_songs[song_selection].artist.name
