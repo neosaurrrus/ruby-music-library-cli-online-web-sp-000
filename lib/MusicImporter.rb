@@ -6,9 +6,7 @@ class MusicImporter
 
   def files
     dir_files = Dir.glob("#{@path}/*")
-
     mp3s = dir_files.map do |file|
-
       split_file = file.split("/")
       split_file[4]
     end
